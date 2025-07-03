@@ -1,12 +1,14 @@
 [phases.setup]
-# This tells Nixpacks to install the Bun package into the environment
 nixPkgs = ["...", "bun"]
 
 [phases.install]
+# Installs all dependencies from the monorepo root
 cmds = ["bun install"]
 
 [phases.build]
-cmds = ["bun run build"]
+# Filters to build only the "@season-summary/app" package
+cmds = ["bun run --filter @season-summary/app build"]
 
 [start]
-cmd = "bun --bun src/index.js"
+# Changes directory before starting the server
+cmd = "cd app && bun --bun src/index.js"
