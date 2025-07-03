@@ -1,0 +1,13 @@
+# This file tells Railway/Nixpacks how to build your SvelteKit app
+
+[phases.install]
+# Use 'bun install' instead of the default 'npm install'
+cmds = ["bun install"]
+
+[phases.build]
+# The command to build the app for production
+cmds = ["bun run build"]
+
+[start]
+# The command to start the production server
+cmd = "bun --bun src/index.js"
